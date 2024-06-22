@@ -18,12 +18,14 @@ const lineData = [0, 10, 5, 20]
 const xScale = d3
     .scaleLinear()
     .domain([0, 3])
-    .range([0, width]);
+    .range([0, width])
+    .nice();
 
 const yScale = d3
     .scaleLinear()
     .domain(d3.extent(lineData))
-    .range([height, 0]);
+    .range([height, 0])
+    .nice();
 
 const line = d3
     .line()

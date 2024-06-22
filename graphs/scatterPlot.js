@@ -21,12 +21,14 @@ const yValue = (d) => d.petalWidth;
 const xScale = d3
     .scaleLinear()
     .domain(d3.extent(data, xValue))
-    .range([0, width]);
+    .range([0, width])
+    .nice();
 
 const yScale = d3
     .scaleLinear()
     .domain(d3.extent(data, yValue))
-    .range([height, 0]);
+    .range([height, 0])
+    .nice();
 
 const colorScale = d3
     .scaleOrdinal()
