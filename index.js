@@ -33,5 +33,6 @@ const line = d3
 g.append("path")
     .datum(lineData)
     .attr("d", line)
-    .style("stroke", "black")
+    .style("stroke", "steelblue")
+    .style("stroke-width", 3)
     .style("fill", "none");
