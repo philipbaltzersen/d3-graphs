@@ -1,5 +1,7 @@
 import { data } from "./data/iris.js"
 
+const lineData = [0, 10, 5, 20]
+
 const width = 400;
 const height = 250;
 const margin = {top: 20, right: 30, bottom: 30, left: 40}
@@ -13,8 +15,6 @@ const svg = d3
 
 const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
-const lineData = [0, 10, 5, 20]
-
 const xScale = d3
     .scaleLinear()
     .domain([0, 3])
@@ -26,6 +26,12 @@ const yScale = d3
     .domain(d3.extent(lineData))
     .range([height, 0])
     .nice();
+
+g.append("g").call(d3.axisLeft(yScale));
+
+g.append("g")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(xScale).ticks(width / 50));
 
 const line = d3
     .line()
